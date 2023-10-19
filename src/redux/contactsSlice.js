@@ -1,7 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { handlePending, handleRejected } from './helpers';
 import { addContact, deleteContact, fetchContactsThunk } from './operations';
-import { initialState } from '../components/initialState';
+
+const initialState = {
+  items: [],
+  isLoading: false,
+  error: null,
+};
 
 const contactsSlice = createSlice({
   name: 'contacts',
