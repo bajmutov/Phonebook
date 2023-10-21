@@ -8,6 +8,11 @@ const ContactItem = ({ id, name, number }) => {
 
   return (
     <li className="contactItem">
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/2922/2922506.png"
+        alt="avatar"
+        width={37}
+      />
       {name}: {number}
       <button
         type="button"

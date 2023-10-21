@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const styles = {
   container: {
     minHeight: 'calc(100vh - 50px)',
@@ -20,6 +22,10 @@ export default function Home() {
         <span role="img" aria-label="Greeting icon">
           💁‍♀️
         </span>
+        <p>
+          You can view your &nbsp;
+          <Link to="/contacts">contacts</Link>
+        </p>
       </h1>
     </div>
   );
