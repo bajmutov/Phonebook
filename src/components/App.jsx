@@ -6,6 +6,8 @@ import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
 import { selectIsFetching } from 'redux/auth/selectors';
 import { refreshUser } from 'redux/auth/operations';
+import Spinner from './Spinner/Spinner';
+import { Toaster } from 'react-hot-toast';
 
 const Home = lazy(() => import('../pages/Home'));
 const RegisterPage = lazy(() => import('../pages/Register'));
@@ -21,8 +23,11 @@ export const App = () => {
 
   const isFetching = useSelector(selectIsFetching);
 
-  return (
-    !isFetching && (
+  return isFetching ? (
+    <Spinner size={150} />
+  ) : (
+    <>
+      <Toaster />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
@@ -52,6 +57,6 @@ export const App = () => {
           />
         </Route>
       </Routes>
-    )
+    </>
   );
 };

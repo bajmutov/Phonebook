@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import css from './RegisterForm.module.css';
 import { Link } from 'react-router-dom';
 import { register } from 'redux/auth/operations';
+import toast from 'react-hot-toast';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -9,13 +10,20 @@ export const RegisterForm = () => {
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.currentTarget;
+    const email = form.elements.email.value;
+    const password = form.elements.password.value;
+    const name = form.elements.name.value;
     dispatch(
       register({
-        name: form.elements.name.value,
-        email: form.elements.email.value,
-        password: form.elements.password.value,
+        name,
+        email,
+        password,
       })
     );
+    toast.success(`You are registered 🤗, ${name}`, {
+      duration: 3000,
+      position: 'top-right',
+    });
     form.reset();
   };
 
