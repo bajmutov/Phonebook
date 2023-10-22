@@ -4,28 +4,38 @@ import {
   Container,
   Stack,
   Heading,
+  Avatar,
+  WrapItem,
+  Center,
 } from '@chakra-ui/react';
 
 const Footer = () => {
   return (
     <footer>
-      <Box
-        bgGradient="linear(to-r, green.200, pink.500)"
-        color={useColorModeValue('white')}
-      >
-        <Container
-          as={Stack}
-          maxW={'4xl'}
-          py={4}
-          direction={{ base: 'column', md: 'row' }}
-          spacing={4}
-          justify={'center'}
-          align={{ base: 'end', md: 'center' }}
+      <Box position="relative">
+        <Box
+          bgGradient="linear(to-r, green.200, pink.500)"
+          color={useColorModeValue('white')}
+          position="fixed"
+          bottom="0"
+          w="100%"
         >
-          <Heading as={'b'} fontSize={'lg'}>
-            © 2023 Oleksandr Bakhmutov. All rights reserved
-          </Heading>
-        </Container>
+          <Container
+            as={Stack}
+            maxW={'4xl'}
+            py={4}
+            direction={{ base: 'column', md: 'row' }}
+            spacing={4}
+            justify={'center'}
+            align={{ base: 'end', md: 'center' }}
+          >
+            <Center>
+              <Heading as={'b'} fontSize={'lg'}>
+                © 2023 Oleksandr Bakhmutov. All rights reserved
+              </Heading>
+            </Center>
+          </Container>
+        </Box>
       </Box>
     </footer>
   );
