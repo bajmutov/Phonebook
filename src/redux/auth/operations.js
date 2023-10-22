@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import toast from 'react-hot-toast';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
@@ -42,6 +43,10 @@ export const logIn = createAsyncThunk(
       const res = await axios.post('/users/login', credentials);
       // After successful login, add the token to the HTTP header
       setAuthHeader(res.data.token);
+      toast.success(`You Are Welcome, ${res.data.user.email}`, {
+        duration: 2000,
+        position: 'top-right',
+      });
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

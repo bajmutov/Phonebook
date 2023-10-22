@@ -1,22 +1,17 @@
-import { NavLink } from 'react-router-dom';
-import css from './Navigation.module.css';
 import { useSelector } from 'react-redux';
 import { selectIsLoggedin } from 'redux/auth/selectors';
+import { Link } from './Navigation.styled';
+import { Box } from '@chakra-ui/react';
 
 export const Navigation = () => {
   const isLoggedIn = useSelector(selectIsLoggedin);
 
   return (
-    <nav>
-      <NavLink className={css.link} to="/">
-        Home
-      </NavLink>
-
-      {isLoggedIn && (
-        <NavLink className={css.link} to="/contacts">
-          Contacts
-        </NavLink>
-      )}
-    </nav>
+    <Box ml={6}>
+      <nav>
+        <Link to="/">Home</Link>
+        {isLoggedIn && <Link to="contacts">Contacts</Link>}
+      </nav>
+    </Box>
   );
 };

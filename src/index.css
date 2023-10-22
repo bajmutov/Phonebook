@@ -1,6 +1,13 @@
-@import-normalize; /* bring in normalize.css styles */
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500&family=Phudu:wght@400;500;700&display=swap');
 
 body {
+  background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 0, 0.5),
+      rgba(0, 0, 255, 0.5)
+    )
+    no-repeat !important;
+  height: 100vh;
   margin: 0;
   line-height: 1.5;
   font-size: 24px;
@@ -24,70 +31,4 @@ h4,
 h5,
 h6 {
   margin-top: 20px;
-}
-
-#root {
-  padding: 20px;
-  /* text-align: center; */
-}
-
-button {
-  display: inline-block;
-  margin-right: 50px;
-  /* margin-left: 20px; */
-  box-shadow: 5px 5px 2px 1px rgba(0, 255, 255, 0.2);
-}
-
-.btn-secondary {
-  margin-left: 20px;
-}
-
-p {
-  margin: 0;
-}
-
-input {
-  width: 400px;
-  margin-bottom: 10px;
-}
-
-form {
-  text-align: left;
-  outline: 1px solid black;
-  width: 420px;
-  padding: 10px;
-  box-shadow: inset 0 0 10px 5px rgba(0, 0, 0, 0.3);
-}
-
-.form-input {
-  outline: none;
-  border-radius: 4px;
-}
-
-.form-input:valid {
-  border-color: #4caf50;
-}
-
-.form-input:invalid {
-  border-color: #f44336;
-}
-
-.contactItem {
-  margin-bottom: 10px;
-}
-
-.formLabel {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 16px;
-}
-
-.filterInput {
-  margin-left: 20px;
-  outline: none;
-  box-shadow: inset 0 0 10px 5px rgba(0, 0, 0, 0.3);
-}
-
-.form-input:placeholder-shown {
-  border-color: blue;
 }

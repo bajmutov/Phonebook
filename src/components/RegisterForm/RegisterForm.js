@@ -1,10 +1,27 @@
 import { useDispatch } from 'react-redux';
-import css from './RegisterForm.module.css';
 import { Link } from 'react-router-dom';
 import { register } from 'redux/auth/operations';
 import toast from 'react-hot-toast';
+import {
+  Flex,
+  Box,
+  FormControl,
+  FormLabel,
+  Input,
+  InputGroup,
+  InputRightElement,
+  Stack,
+  Button,
+  Heading,
+  Text,
+  useColorModeValue,
+  ScaleFade,
+} from '@chakra-ui/react';
+import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
+import { useState } from 'react';
 
 export const RegisterForm = () => {
+  const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
 
   const handleSubmit = e => {
@@ -29,7 +46,7 @@ export const RegisterForm = () => {
 
   return (
     <>
-      <form className={css.form} onSubmit={handleSubmit} autoComplete="off">
+      {/* <form className={css.form} onSubmit={handleSubmit} autoComplete="off">
         <label className={css.label}>
           Username
           <input
@@ -63,7 +80,108 @@ export const RegisterForm = () => {
         </label>
         <button type="submit">Registration</button>
         <Link to="/login">Login</Link>
-      </form>
+      </form> */}
+
+      <Flex align={'center'} justify={'center'}>
+        <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
+          <Stack align={'center'}>
+            <Heading fontSize={'4xl'} textAlign={'center'}>
+              Sign up
+            </Heading>
+            <Text fontSize={'lg'} color={'gray.600'}>
+              to save your contacts ☎️
+            </Text>
+          </Stack>
+          <ScaleFade initialScale={0.7} in>
+            <Box
+              rounded={'lg'}
+              bgGradient="linear(to-r, green.200, pink.500)"
+              boxShadow={'lg'}
+              p={8}
+            >
+              <Stack spacing={20} w={'350px'}>
+                <form onSubmit={handleSubmit}>
+                  <Stack spacing={4}>
+                    <FormControl>
+                      <FormLabel isRequired>
+                        Username
+                        <Input
+                          required
+                          autoComplete="off"
+                          type="text"
+                          name="name"
+                          placeholder="Jacob Mercer"
+                          pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+                          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+                        />
+                      </FormLabel>
+                    </FormControl>
+                    <FormControl>
+                      <FormLabel>
+                        Email
+                        <Input
+                          autoComplete="off"
+                          type="email"
+                          name="email"
+                          placeholder="across@mail.com"
+                        />
+                      </FormLabel>
+                    </FormControl>
+                    <FormControl>
+                      <FormLabel>
+                        Password
+                        <InputGroup>
+                          <Input
+                            autoComplete="off"
+                            name="password"
+                            type={showPassword ? 'text' : 'password'}
+                          />
+
+                          <InputRightElement h={'full'}>
+                            <Button
+                              variant={'ghost'}
+                              onClick={() =>
+                                setShowPassword(showPassword => !showPassword)
+                              }
+                            >
+                              {showPassword ? <ViewIcon /> : <ViewOffIcon />}
+                            </Button>
+                          </InputRightElement>
+                        </InputGroup>
+                      </FormLabel>
+                    </FormControl>
+                    <Stack spacing={10} pt={2}>
+                      <Button
+                        type="submit"
+                        loadingText="Submitting"
+                        size="lg"
+                        colorScheme="blue"
+                      >
+                        Registration
+                      </Button>
+                    </Stack>
+                    <Stack pt={6}>
+                      <Text align={'center'}>
+                        Already a user?
+                        <Link
+                          style={{
+                            color: '#66bfbf',
+                            marginLeft: '6px',
+                            textDecoration: 'underline',
+                          }}
+                          to="/login"
+                        >
+                          Login
+                        </Link>
+                      </Text>
+                    </Stack>
+                  </Stack>
+                </form>
+              </Stack>
+            </Box>
+          </ScaleFade>
+        </Stack>
+      </Flex>
     </>
   );
 };
