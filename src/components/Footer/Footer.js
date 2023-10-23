@@ -4,8 +4,6 @@ import {
   Container,
   Stack,
   Heading,
-  Avatar,
-  WrapItem,
   Center,
 } from '@chakra-ui/react';
 

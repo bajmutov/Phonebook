@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500&family=Phudu:wght@400;500;700&display=swap');
 
 body {
-  background: linear-gradient(
+  /* background: linear-gradient(
       to bottom,
       rgba(255, 255, 0, 0.5),
       rgba(0, 0, 255, 0.5)
     )
-    no-repeat !important;
+    no-repeat !important; */
+  background: url(../src/images/bg.jpg) center / cover no-repeat !important;
   height: 100vh;
   margin: 0;
   line-height: 1.5;

@@ -1,5 +1,3 @@
-// import { Container } from '@chakra-ui/react';
-
 import ContactList from 'components/ConatctList/ContactList';
 import ContactForm from 'components/ContactForm/ContactForm';
 import Filter from 'components/Filter/Filter';
@@ -20,9 +18,7 @@ const Contacts = () => {
 
   return (
     <div>
-      <h1>Phonebook</h1>
       <ContactForm />
-      <h2>Contacts</h2>
       <Filter />
       {isLoading && !error && <Spinner size={150} />}
       {error && <b>Error! Reload the page</b>}

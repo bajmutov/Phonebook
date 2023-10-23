@@ -42,7 +42,7 @@ export const LoginForm = () => {
                 <Stack spacing={4} mb={3}>
                   <FormControl>
                     <FormLabel>
-                      Email*
+                      Email
                       <Input
                         autoComplete="off"
                         type="email"
@@ -75,8 +75,6 @@ export const LoginForm = () => {
                     Log In
                   </Button>
                 </Stack>
-                <Stack pt={6}></Stack>
-
                 <Stack pt={6}>
                   <Text align={'center'}>
                     You are not user?

@@ -1,32 +1,27 @@
+import { Heading } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
-
-const styles = {
-  container: {
-    minHeight: 'calc(100vh - 150px)',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontWeight: 500,
-    fontSize: 48,
-    textAlign: 'center',
-  },
-};
 
 export default function Home() {
   return (
-    <div style={styles.container}>
-      <h1 style={styles.title}>
-        Welcome to the PHONEBOOK storage app! 👀
-        <span role="img" aria-label="Greeting icon">
-          💁‍♀️
-        </span>
-        <p>
-          You can view your &nbsp;
-          <Link to="/contacts">contacts</Link>
-        </p>
-      </h1>
-    </div>
+    <Heading
+      p="300px 0"
+      textShadow="3px 2px orange"
+      fontSize={'4xl'}
+      textAlign={'center'}
+    >
+      Welcome to the PHONEBOOK storage app!{' '}
+      <span role="img" aria-label="Greeting icon">
+        💁‍♀️
+      </span>
+      <p>
+        You can view your &nbsp;
+        <Link
+          to="/contacts"
+          style={{ color: '#000', textDecoration: 'underline' }}
+        >
+          contacts
+        </Link>
+      </p>
+    </Heading>
   );
 }

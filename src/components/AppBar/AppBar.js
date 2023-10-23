@@ -13,12 +13,10 @@ export const AppBar = () => {
   return (
     <Header>
       <Container>
-        <Container>
-          <FcMultipleSmartphones size={'2em'} />
-          <Heading size="md">PhoneBook</Heading>
-        </Container>
-        <Navigation />
+        <FcMultipleSmartphones size={'2em'} />
+        <Heading size="md">PhoneBook</Heading>
       </Container>
+      <Navigation />
       {isLoggedIn ? <UserMenu /> : <AuthNav />}
     </Header>
   );

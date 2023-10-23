@@ -32,7 +32,6 @@ export const UserMenu = () => {
       <Text as="b" ml={1}>
         You Are Welcome, {email}
       </Text>
-
       <Button
         type="button"
         bgGradient="linear(to-r, gray.300, yellow.400, pink.200)"

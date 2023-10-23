@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { changeFilter } from 'redux/filtersSlice';
 import { selectFilter } from 'redux/selectors';
+import { Flex, Input } from '@chakra-ui/react';
 
 const Filter = () => {
   const filterContact = useSelector(selectFilter);
@@ -8,20 +9,18 @@ const Filter = () => {
   const handleFilterChange = e => dispatch(changeFilter(e.currentTarget.value));
 
   return (
-    <div>
-      <label htmlFor="findContact" className="form-label">
-        Find contacts by name
-      </label>
-      <input
-        className="form-input filterInput"
+    <Flex justifyContent={'center'}>
+      <Input
+        boxShadow="dark-lg"
+        p="0 10px"
+        width="466px"
         name="title"
         type="text"
         onChange={handleFilterChange}
         value={filterContact}
-        id="findContact"
-        placeholder="Jacob Mercer"
+        placeholder="Find contact by name"
       />
-    </div>
+    </Flex>
   );
 };
 
